@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {ThemeProvider} from '@ui5/webcomponents-react';
-import Home from './Home';
+import Home from './components/Home';
 
 function App() {
   return (
