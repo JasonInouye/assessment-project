@@ -15,17 +15,7 @@ import {
 
 function Home() {
   return <div>
-        <ShellBar
-            logo={<img src="mindsetlogo.png" />}
-            primaryTitle=""
-            profile={
-                <Avatar>
-                    <img src="https://raw.githubusercontent.com/sap-tutorials/Tutorials/master/tutorials/ui5-webcomponents-react-dashboard/profilePictureExample.png" />
-                </Avatar>
-            }
-        >
-            <ShellBarItem></ShellBarItem>
-        </ShellBar>
+
         <div>
             <Title>Dev Team</Title>
             <Card
