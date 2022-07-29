@@ -1,18 +1,22 @@
 import './App.css';
 import {ThemeProvider} from '@ui5/webcomponents-react';
-import Home from './Home';
-import DetailsPage from './DetailsPage';
-import IndividualItem from './IndividualItem';
-import UniversalShell from './UniversalShell';
+import {HashRouter} from 'react-router-dom';
+
+import Employees from '../Employees/Employees';
+import DetailsPage from '../DetailsPage/DetailsPage';
+import IndividualItem from '../EmployeeItem/EmployeeItem';
+import UniversalShell from '../ShellBar/UniversalShell';
 
 function App() {
   return (
-    <ThemeProvider>
-      <UniversalShell />
-      {/* <Home /> */}
-      {/* <DetailsPage /> */}
-      <IndividualItem />
-    </ThemeProvider>
+    <HashRouter>
+      <ThemeProvider>
+        <UniversalShell />
+        {/* <Employees /> */}
+        {/* <DetailsPage /> */}
+        {/* <IndividualItem /> */}
+      </ThemeProvider>
+    </HashRouter>
   );
 }
 

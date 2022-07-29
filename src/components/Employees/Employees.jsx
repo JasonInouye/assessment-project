@@ -13,7 +13,7 @@ import {
     Text,
     Title} from '@ui5/webcomponents-react';
 
-function Home() {
+function Employees() {
   return <div>
 
         <div>
@@ -63,4 +63,4 @@ function Home() {
   
 }
 
-export default Home
+export default Employees
