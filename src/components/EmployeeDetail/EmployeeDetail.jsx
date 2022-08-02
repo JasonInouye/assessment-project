@@ -93,7 +93,7 @@ const projectColumns = [
     }
   ];
 
-function IndividualItem() {
+function EmployeeDetail() {
   return (
     <Grid>
       <div
@@ -195,4 +195,4 @@ function IndividualItem() {
   )
 }
 
-export default IndividualItem
+export default EmployeeDetail

@@ -22,38 +22,39 @@ function Employees() {
 
     const handleEmployeeDetailClick = () => {
         console.log('Employees Clicked');
-        navigate("/employeesDetails");
+        navigate("/employeeDetail");
       };
 
     return  (
         <div>
-        <Title>Dev Team</Title>
-        <div>
-            {employees.map((employees) => {
-                return(
-                    <div key={employees.employeeId}>
-                        
-                        <Grid>
-                            <div           
-                                data-layout-indent="XL3 L3 M3 S1"
-                                data-layout-span="XL6 L6 M6 S6"
-                            >
-                                <Card
-                                header={<CardHeader avatar={<img src={employees.image} />} titleText={employees.title} onClick={handleEmployeeDetailClick} />}
-                                style={{ width: "375px", ...spacing.sapUiContentPadding }}
+            <Title>Dev Team</Title>
+                <div>
+                    <Grid
+                        position="center"
+                        hSpacing="0rem"
+                        vSpacing="0rem"
+                    >
+                        {employees.map((employees) => {
+                            return(
+                                <div key={employees.employeeId}
+                                    data-layout-indent="XL1 L1 M1 S12"
+                                    data-layout-span="XL1 L1 M1 S12"
                                 >
-                                    <List>
-                                        <StandardListItem onClick={handleEmployeeDetailClick}>
-                                            {employees.fname+' '+employees.lname}
-                                        </StandardListItem>
-                                    </List>
-                                </Card>
-                            </div>
-                        </Grid>
-                    </div>
-                )
-            })}
-        </div>
+                                    <Card
+                                        header={<CardHeader avatar={<img src={employees.image} />} titleText={employees.title} onClick={handleEmployeeDetailClick} />}
+                                        style={{ width: "375px", ...spacing.sapUiContentPadding }}
+                                    >
+                                        <List>
+                                            <StandardListItem onClick={handleEmployeeDetailClick}>
+                                                {employees.fname+' '+employees.lname}
+                                            </StandardListItem>
+                                        </List>
+                                    </Card>
+                                </div>
+                            )
+                        })}
+                    </Grid>
+                </div>
         </div>
     )
   

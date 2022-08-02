@@ -20,15 +20,18 @@ function SkillList() {
     }, []);
 
     return (
-
         <div>
-            {skills.map((skillItem) =>{
-                return(
-                    <div key={skillItem.skillId}>
-                        <Grid>
-                            <div 
-                            data-layout-indent="XL3 L3 M3 S1"
-                            data-layout-span="XL4 L4 M4 S6">                  
+            <Grid
+                position="center"
+                hSpacing="0rem"
+                vSpacing="0rem"
+            >
+                {skills.map((skillItem) =>{
+                    return(
+                        <div key={skillItem.skillId}
+                            data-layout-indent="XL1 L2 M4 S12"
+                            data-layout-span="XL1 L1 M2 S12"
+                        >
                             <Card                
                                 header={<CardHeader titleText={skillItem.skill} />}
                                 style={{ width: "375px", ...spacing.sapUiContentPadding, margin: "30px" }}
@@ -45,12 +48,11 @@ function SkillList() {
                                         Interested
                                     </Button>
                                 </div>
-                            </Card>
-                            </div> 
-                        </Grid>
-                    </div>
-                )
-            })}
+                            </Card> 
+                        </div>
+                    )
+                })}
+            </Grid>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import {HashRouter} from 'react-router-dom';
 
 import Employees from '../Employees/Employees';
 import DetailsPage from '../DetailsPage/DetailsPage';
-import IndividualItem from '../EmployeeItem/EmployeeItem';
+import EmployeeDetail from '../EmployeeDetail/EmployeeDetail';
 import UniversalShell from '../ShellBar/UniversalShell';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <UniversalShell />
         {/* <Employees /> */}
         {/* <DetailsPage /> */}
-        {/* <IndividualItem /> */}
+        {/* <EmployeeDetail /> */}
       </ThemeProvider>
     </HashRouter>
   );

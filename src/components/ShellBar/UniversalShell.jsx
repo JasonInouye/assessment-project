@@ -11,7 +11,7 @@ import "@ui5/webcomponents-icons/dist/employee-lookup";
 import "@ui5/webcomponents-icons/dist/product";
 
 import Employees from "../Employees/Employees"
-import EmployeeItem from "../EmployeeItem/EmployeeItem"
+import EmployeeDetail from "../EmployeeDetail/EmployeeDetail"
 import SkillList from '../SkillList/SkillList';
 
 
@@ -25,7 +25,7 @@ function UniversalShell() {
 
   const handleEmployeeDetailClick = () => {
     console.log('EmployeeDetail Clicked');
-    navigate("/employeesDetails");
+    navigate("/employeeDetail");
   };
 
   const handleNewSkillClick = () => {
@@ -50,7 +50,7 @@ function UniversalShell() {
     <Routes>
       <Route path="/skills" element={<SkillList />} />
       <Route path="/employees" element={<Employees />} />
-      <Route path="/employeesDetails" element={<EmployeeItem />} />
+      <Route path="/employeeDetail" element={<EmployeeDetail />} />
       <Route path="/" element={<Navigate replace to="/employees" />} />
     </Routes>
     </>  
