@@ -24,7 +24,7 @@ function SkillList() {
         <div>
             {skills.map((skillItem) =>{
                 return(
-                    <div key={skillItem.id}>
+                    <div key={skillItem.skillId}>
                         <Grid>
                             <div 
                             data-layout-indent="XL3 L3 M3 S1"
