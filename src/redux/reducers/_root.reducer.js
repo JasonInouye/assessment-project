@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import skills from './skills.reducer';
 import employees from './employees.reducer';
-import employeeDetail from './employeeDetail.reducer';
+import singleEmployeeDetails from './employeeDetail.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -12,7 +12,7 @@ import employeeDetail from './employeeDetail.reducer';
 const rootReducer = combineReducers({
     skills,
     employees,
-    employeeDetail
+    singleEmployeeDetails
 });
 
 export default rootReducer;
