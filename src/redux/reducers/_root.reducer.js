@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import skills from './skills.reducer';
 import employees from './employees.reducer';
+import employeeDetail from './employeeDetail.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -10,7 +11,8 @@ import employees from './employees.reducer';
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
     skills,
-    employees
+    employees,
+    employeeDetail
 });
 
 export default rootReducer;

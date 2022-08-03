@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import {spacing} from "@ui5/webcomponents-react-base";
 import {
     AnalyticalTable,
@@ -13,6 +15,7 @@ import {
 import "@ui5/webcomponents-icons/dist/list";
 import "@ui5/webcomponents-icons/dist/account";
 import "@ui5/webcomponents-icons/dist/product";
+
 
 const tableData = [
     {
@@ -94,6 +97,15 @@ const projectColumns = [
   ];
 
 function EmployeeDetail() {
+  let params = useParams();
+  const dispatch = useDispatch();
+  const employeeDetail = useSelector((store) => store.employeeDetail);
+
+  useEffect(() => {
+    dispatch({ type: 'GET_EMP_DETAILS', payload: 1 });
+  }, [])
+  
+
   return (
     <Grid>
       <div

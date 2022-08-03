@@ -29,8 +29,8 @@ function SkillList() {
                 {skills.map((skillItem) =>{
                     return(
                         <div key={skillItem.skillId}
-                            data-layout-indent="XL1 L2 M4 S12"
-                            data-layout-span="XL1 L1 M2 S12"
+                            data-layout-indent="XL3 L3 M6 S12"
+                            data-layout-span="XL1 L1 M3 S12"
                         >
                             <Card                
                                 header={<CardHeader titleText={skillItem.skill} />}

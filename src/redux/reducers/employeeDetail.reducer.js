@@ -205,13 +205,15 @@ let employeeData = [
     },
 ]
 
-const employees = (state = employeeData, action) => { 
+const employeeDetail = (state = employeeData, action) => { 
     switch (action.type) {
-        case 'GET_EMPLOYEES':
-            return state;
+        case 'GET_EMP_DETAILS':        
+            let employeeDetail = state.filter(employees => employees.employeeId === action.payload)
+            console.log('Employee Details', employeeDetail);
+            return employeeDetail;
         default:
             return state;
     }
 }
 
-export default employees
+export default employeeDetail
