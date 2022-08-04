@@ -10,8 +10,9 @@ import {
   TableCell,
   TableColumn,
 } from "@ui5/webcomponents-react";
+import EmployeeSkillItem from "./EmployeeSkillItem";
 
-function SkillsDetail(skills) {
+function EmployeeSkill(skills) {
   const [skillData] = skills.skills;
 
   return (
@@ -42,23 +43,13 @@ function SkillsDetail(skills) {
         onRowClick={function noRefCheck() {}}
         onSelectionChange={function noRefCheck() {}}
       >
-        {skillData.map((skill) => {
-          return (
-            <div key={skill.skillId}>
-              <TableRow style={{ width: "12rem" }}>
-                <TableCell>
-                  <Label>{skill.skill}</Label>
-                </TableCell>
-                <TableCell style={{ width: "12rem" }}>
-                  <Label>{skill.rating}</Label>
-                </TableCell>
-              </TableRow>
-            </div>
-          );
-        })}
+        <EmployeeSkillItem 
+          key={skillData.id}
+          skills={[skillData]}
+        />
       </Table>
     </Card>
   );
 }
 
-export default SkillsDetail;
+export default EmployeeSkill;

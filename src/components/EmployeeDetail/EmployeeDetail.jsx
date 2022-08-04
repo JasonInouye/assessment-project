@@ -13,7 +13,7 @@ import {
 import "@ui5/webcomponents-icons/dist/list";
 import "@ui5/webcomponents-icons/dist/account";
 import "@ui5/webcomponents-icons/dist/product";
-import SkillsDetail from "./EmployeeSkill";
+import EmployeeSkill from "./EmployeeSkill";
 
 const tableData = [
   {
@@ -142,7 +142,8 @@ function EmployeeDetail() {
                 <img src="profile1.jpg" />
               </Avatar>
             </Card>
-            <SkillsDetail 
+
+            <EmployeeSkill 
               key={employeeDetail.employeeId}
               skills={[employeeDetail.skills]}
             />
