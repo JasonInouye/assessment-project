@@ -9,12 +9,11 @@ import {
   CardHeader,
   Grid,
   Icon,
-  List,
-  StandardListItem,
 } from "@ui5/webcomponents-react";
 import "@ui5/webcomponents-icons/dist/list";
 import "@ui5/webcomponents-icons/dist/account";
 import "@ui5/webcomponents-icons/dist/product";
+import SkillsDetail from "./EmployeeSkill";
 
 const tableData = [
   {
@@ -96,78 +95,24 @@ const projectColumns = [
 ];
 
 function EmployeeDetail() {
-  let params = useParams();
+  const {id} = useParams();
   const dispatch = useDispatch();
-  
-
-  
 
   useEffect(() => {
-    dispatch({ type: "GET_EMP_DETAILS", payload: 1 });
-  }, []);
+    dispatch({ type: "GET_EMP_DETAILS", payload: id });
+  }, [id]);
 
-  const abc = useSelector((store) => store.singleEmployeeDetails);
-
-  console.log("why is this not working", abc);
-
-
-  //console.log("this is in the details", employeeDetail);
+  const employeeDetails = useSelector((store) => store.singleEmployeeDetails);
 
   return (
     <Grid>
-      {abc.map((employeeDetail) => {
+      {employeeDetails.map((employeeDetail) => {
         return (
           <div
             data-layout-indent="XL4 L4 M4 S1"
             data-layout-span="XL1 L1 M1 S1"
             key={employeeDetail.employeeId}
           >
-            {/* <Card
-              header={
-                <CardHeader
-                  titleText="Skill List"
-                  subtitleText="List"
-                  avatar={<Icon name="list" />}
-                  interactive
-                />
-              }
-              style={{ width: "450px", ...spacing.sapUiContentPadding }}
-            >
-              {employeeDetail.skills.map((skills) => {
-                return (
-                  <div key={skills.skillId}>
-                    <AnalyticalTable
-                      data={skills.skill}
-                      columns={skills.rating}
-                      visibleRows={6}
-                      filterable={true}
-                      groupable={true}
-                    />
-                  </div>
-                );
-              })}
-            </Card> */}
-            {/* 
-            <Card
-              header={
-                <CardHeader
-                  titleText="Interested"
-                  subtitleText="Skills"
-                  avatar={<Icon name="list" />}
-                  interactive
-                />
-              }
-              style={{ width: "450px", ...spacing.sapUiContentPadding }}
-            >
-              <List>
-                <StandardListItem>ABAP</StandardListItem>
-                <StandardListItem>ODATA</StandardListItem>
-              </List>
-            </Card> */}
-
-            {/* </div>
-
-            <div> */}
             <Card
               header={
                 <CardHeader
@@ -197,6 +142,10 @@ function EmployeeDetail() {
                 <img src="profile1.jpg" />
               </Avatar>
             </Card>
+            <SkillsDetail 
+              key={employeeDetail.employeeId}
+              skills={[employeeDetail.skills]}
+            />
 
             <Card
               header={

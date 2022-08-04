@@ -47,12 +47,12 @@ function UniversalShell() {
       <ShellBarItem icon="employee-lookup" text="employees" onClick={handleEmployeeSearchClick}/>
       <ShellBarItem icon="product" text="Project Page" onClick={handleEmployeeDetailClick}/>
     </ShellBar>
-    <Routes>
+    {/* <Routes>
       <Route path="/skills" element={<SkillList />} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/employeeDetail" element={<EmployeeDetail />} />
       <Route path="/" element={<Navigate replace to="/employees" />} />
-    </Routes>
+    </Routes> */}
     </>  
   )
 }
