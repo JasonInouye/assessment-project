@@ -13,9 +13,6 @@ function App() {
     <HashRouter>
       <ThemeProvider>
         <UniversalShell />
-        {/* <Employees /> */}
-        {/* <DetailsPage /> */}
-        {/* <EmployeeDetail /> */}
         <Routes>
           <Route path="/skills" element={<SkillList />} />
           <Route path="/employees" element={<Employees />} />

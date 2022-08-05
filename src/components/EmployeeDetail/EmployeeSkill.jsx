@@ -1,5 +1,6 @@
 import React from "react";
 import { spacing } from "@ui5/webcomponents-react-base";
+import { useNavigate } from 'react-router-dom'
 import {
   Card,
   CardHeader,
@@ -14,15 +15,22 @@ import EmployeeSkillItem from "./EmployeeSkillItem";
 
 function EmployeeSkill(skills) {
   const [skillData] = skills.skills;
+  const navigate = useNavigate();
+
+  const handleSkill = () => {
+    console.log('skill route clicked');
+    navigate('/skills')
+  }
 
   return (
     <Card
       header={
         <CardHeader
           titleText="Skill List"
-          subtitleText="List"
-          avatar={<Icon name="list" />}
+          subtitleText="Click here for complete list"
+          avatar={<Icon name="add-equipment" />}
           interactive
+          onClick={handleSkill}
         />
       }
       style={{ width: "450px", ...spacing.sapUiContentPadding }}
@@ -33,7 +41,7 @@ function EmployeeSkill(skills) {
             <TableColumn style={{ width: "12rem" }}>
               <Label>Skill</Label>
             </TableColumn>
-            <TableColumn style={{ width: "12rem" }}>
+            <TableColumn minWidth={10} popinText="Rating">
               <Label>Rating</Label>
             </TableColumn>
           </>
