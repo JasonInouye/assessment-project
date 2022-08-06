@@ -38,14 +38,15 @@ function EmployeeSkill(skills) {
       <Table
         columns={
           <>
-            <TableColumn style={{ width: "12rem" }}>
+            <TableColumn style={{ width: "1rem" }}>
               <Label>Skill</Label>
             </TableColumn>
-            <TableColumn minWidth={10} popinText="Rating">
+            <TableColumn minWidth={800} popinText="Rating">
               <Label>Rating</Label>
             </TableColumn>
           </>
         }
+        style={{ width: "450p" }}
         onLoadMore={function noRefCheck() {}}
         onPopinChange={function noRefCheck() {}}
         onRowClick={function noRefCheck() {}}

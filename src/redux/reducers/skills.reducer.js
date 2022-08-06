@@ -59,6 +59,11 @@ let initialState = [
         skill: 'ODATA',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget feugiat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus.'
     },
+    {
+        skillId: 13,
+        skill: 'COBOL',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget feugiat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus.'
+    },
 
 ];
 

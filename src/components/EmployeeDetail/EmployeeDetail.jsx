@@ -99,7 +99,7 @@ function EmployeeDetail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "GET_EMP_DETAILS", payload: id });
+    dispatch({ type: "GET_EMP_DETAILS", payload: 1 });
   }, [id]);
 
   const employeeDetails = useSelector((store) => store.singleEmployeeDetails);

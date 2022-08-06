@@ -30,7 +30,22 @@ let employeeData = [
                 skillId: 10,
                 skill: 'Figma',
                 rating: 2
-            }
+            },
+            {
+                skillId: 8,
+                skill: 'JavaScript',
+                rating: 4
+            },
+            {
+                skillId: 13,
+                skill: 'COBOL',
+                rating: 5
+            },
+            {
+                skillId: 9,
+                skill: 'AWS',
+                rating: 2
+            },
         ],
         projects: [
             {
@@ -210,6 +225,10 @@ const singleEmployeeDetails = (state = employeeData, action) => {
         case 'GET_EMP_DETAILS':      
             let employeeDetails = state.filter(employees => Number(employees.employeeId) === Number(action.payload))
             return employeeDetails;
+        case 'EDIT_SKILL':  
+            let updEmployeeDetails = Object.assign(state, {skillId: action.payload.skillId, rating: action.payload.skillRating})    
+            console.log('Employee Reducer', action);
+            return [...state]
         default:
             return state;
     }
