@@ -99,7 +99,7 @@ function EmployeeDetail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "GET_EMP_DETAILS", payload: 1 });
+    dispatch({ type: "GET_EMP_DETAILS", payload: [id] });
   }, [id]);
 
   const employeeDetails = useSelector((store) => store.singleEmployeeDetails);
@@ -124,7 +124,7 @@ function EmployeeDetail() {
               }
               style={{
                 width: "450px",
-                height: "500px",
+                height: "550px",
                 ...spacing.sapUiContentPadding,
               }}
             >
@@ -139,7 +139,7 @@ function EmployeeDetail() {
                   ...spacing.sapUiContentPadding,
                 }}
               >
-                <img src="profile1.jpg" />
+                <img src={employeeDetail.image} style={{ objectFit: 'scale-down' }}/>
               </Avatar>
             </Card>
 

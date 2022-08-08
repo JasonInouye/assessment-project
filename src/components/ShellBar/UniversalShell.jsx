@@ -10,14 +10,14 @@ import "@ui5/webcomponents-icons/dist/employee-pane";
 function UniversalShell() {
   const navigate = useNavigate();
 
-  // const handleEmployeeSearchClick = () => {
-  //   console.log("Employees Clicked");
-  //   navigate("/employees");
-  // };
+  const handleEmployeeSearchClick = () => {
+    console.log("Employees Clicked");
+    navigate("/employees");
+  };
 
   const handleEmployeeDetailClick = () => {
     console.log("EmployeeDetail Clicked");
-    navigate("/employeeDetail/1");
+    navigate("/employeeDetail/:id");
   };
 
   const handleNewSkillClick = () => {
@@ -46,12 +46,12 @@ function UniversalShell() {
           text="Add"
           onClick={handleEmployeeDetailClick}
         />
-        {/* <ShellBarItem
+        <ShellBarItem
           icon="employee-lookup"
           text="employees"
           onClick={handleEmployeeSearchClick}
         />
-        <ShellBarItem
+        {/* <ShellBarItem
           icon="product"
           text="Project Page"
           onClick={handleEmployeeDetailClick}

@@ -17,9 +17,9 @@ function App() {
         <Routes>
           <Route path="/skills" element={<SkillList />} />
           <Route path="/employees" element={<Employees />} />
-          <Route path="/employeeDetail/1" element={<EmployeeDetail />} />
+          <Route path="/employeeDetail/:id" element={<EmployeeDetail />} />
           {/* <Route path="/edit/:id" element={<EmployeeSkillDialog />} /> */}
-          <Route path="/" element={<Navigate replace to="/employeeDetails/1" />} />
+          <Route path="/" element={<Navigate replace to="/employees" />} />
         </Routes>
       </ThemeProvider>
     </HashRouter>

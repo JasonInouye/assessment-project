@@ -20,9 +20,9 @@ function Employees() {
         dispatch({ type: 'GET_EMPLOYEES'});
     }, []);
 
-    const handleEmployeeDetailClick = () => {
+    const handleEmployeeDetailClick = (id) => {
         console.log('Employees Clicked');
-        navigate("/employeeDetail");
+        navigate(`/employeeDetail/${[id]}`);
       };
 
     return  (
@@ -45,7 +45,7 @@ function Employees() {
                                         style={{ width: "375px", ...spacing.sapUiContentPadding }}
                                     >
                                         <List>
-                                            <StandardListItem onClick={handleEmployeeDetailClick}>
+                                            <StandardListItem onClick={() => handleEmployeeDetailClick(employees.employeeId)}>
                                                 {employees.fname+' '+employees.lname}
                                             </StandardListItem>
                                         </List>
