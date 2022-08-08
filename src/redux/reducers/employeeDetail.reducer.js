@@ -182,12 +182,12 @@ let employeeData = [
             {
                 skillId: 2,
                 skill: 'ABAP',
-                rating: 3
+                rating: 4
             },
             {
                 skillId: 3,
                 skill: 'React',
-                rating: 3
+                rating: 4
             },
             {
                 skillId: 4,
@@ -220,11 +220,11 @@ let employeeData = [
     },
 ]
 
-const singleEmployeeDetails = (state = employeeData, action) => { 
+const singleEmployeeDetails = (state = [], action) => { 
     switch (action.type) {
         case 'GET_EMP_DETAILS':      
-            let employeeDetails = state.filter(employees => Number(employees.employeeId) === Number(action.payload))
-            console.log('Reducer Single Request', action);
+            let employeeDetails = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
+            console.log('Reducer Single Request', [employeeDetails]);
             return employeeDetails;
         case 'EDIT_SKILL':  
             let updEmployeeDetails = Object.assign(state, {skillId: action.payload.skillId, rating: action.payload.skillRating})    
