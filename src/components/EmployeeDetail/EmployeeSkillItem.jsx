@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { spacing } from "@ui5/webcomponents-react-base";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   Bar,
@@ -17,8 +17,10 @@ import EmployeeSkillDialog from "./EmployeeSkillDialog";
 function EmployeeSkillItem(skills) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const employeeDetails = useSelector((store) => store.singleEmployeeDetails);
 
-  const [skillData] = skills.skills;
+  const skillData = skills.skills;
+  const employeeId = skills.employeeId;
 
   const [rating, setRating] = useState("");
   const [open, setOpen] = useState(false);
@@ -26,6 +28,11 @@ function EmployeeSkillItem(skills) {
   const handleOpenEditBox = (id) => {
     dispatch({ type: "SET_EDIT_SKILL", payload: id });
     console.log("handleOpenEditBox", id);
+    // navigate(`/edit/${id}`);
+  };
+
+  const handleUpdSkill = (skills) => {
+    console.log("handleOpenEditBox", skills);
     // navigate(`/edit/${id}`);
   };
 
@@ -60,7 +67,7 @@ function EmployeeSkillItem(skills) {
                     justifyContent: "right",
                     left: "20px",
                   }}
-                  onClick={() => dispatch({ type:'EDIT_SKILL', payload: {skillId: skill.skillId, skillRating: rating}})}
+                  onClick={() => dispatch({ type: "EDIT_EMP_SKILL", payload: {skills: skill, rating: rating, employeeId: skills.employeeId } })}
                 >
                   Update
                 </Button>

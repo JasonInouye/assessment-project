@@ -15,6 +15,8 @@ import EmployeeSkillItem from "./EmployeeSkillItem";
 
 function EmployeeSkill(skills) {
   const [skillData] = skills.skills;
+  const employeeId = skills.employeeId
+  //const employeeId = skills.assign(skills.employeeId)
   const navigate = useNavigate();
 
   const handleSkill = () => {
@@ -47,14 +49,11 @@ function EmployeeSkill(skills) {
           </>
         }
         style={{ width: "450p" }}
-        onLoadMore={function noRefCheck() {}}
-        onPopinChange={function noRefCheck() {}}
-        onRowClick={function noRefCheck() {}}
-        onSelectionChange={function noRefCheck() {}}
       >
         <EmployeeSkillItem 
           key={skillData.id}
-          skills={[skillData]}
+          skills={skillData}
+          employeeId={employeeId}
         />
       </Table>
     </Card>

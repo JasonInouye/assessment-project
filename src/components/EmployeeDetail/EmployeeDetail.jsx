@@ -146,6 +146,7 @@ function EmployeeDetail() {
             <EmployeeSkill 
               key={employeeDetail.employeeId}
               skills={[employeeDetail.skills]}
+              employeeId={employeeDetail.employeeId}
             />
 
             <Card

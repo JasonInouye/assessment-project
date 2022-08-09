@@ -223,13 +223,49 @@ let employeeData = [
 const singleEmployeeDetails = (state = [], action) => { 
     switch (action.type) {
         case 'GET_EMP_DETAILS':      
-            let employeeDetails = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
-            console.log('Reducer Single Request', [employeeDetails]);
-            return employeeDetails;
-        case 'EDIT_SKILL':  
-            let updEmployeeDetails = Object.assign(state, {skillId: action.payload.skillId, rating: action.payload.skillRating})    
-            console.log('Employee Reducer', action);
-            return [...state]
+            state = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
+            console.log('Reducer Single Request', state);
+            return state;
+        // case 'EDIT_SKILL':  
+        //     let updEmployeeDetails = Object.assign(state, {skillId: action.payload.skillId, rating: action.payload.skillRating})    
+        //     console.log('Employee Reducer', action);
+        //     return [...state]
+        case 'EDIT_EMP_SKILL':
+            console.log('Edit Log', action.payload.skills.skillId);
+            const updEmp = employeeData.map( obj => {
+                if (obj.employeeId === Number(action.payload.employeeId)) {
+                    let arr1=(obj.skills)
+                    let updSkills = arr1.filter(updSkill => updSkill.skillId === action.payload.skills.skillId)
+                    for ( const updSkill of updSkills ) {
+                        updSkill.rating = action.payload.rating
+                    }
+                    console.log('This is the New SKILL Array', arr1);
+                    return {...obj, skills: arr1}
+                }
+            })
+            console.log('sigh', updEmp);
+            const newArray = updEmp.filter( function(updatedRecord){
+                return updatedRecord !== undefined;
+            });
+            console.log('winner winner chicken dinner', newArray[0]);
+
+            let employeeObj = newArray[0]
+
+            console.log('My new object', employeeObj);
+
+            const indexOfUpdEmployee = employeeData.findIndex(object => {
+                return object.employeeId === action.payload.employeeId
+            })
+
+            employeeData.splice(indexOfUpdEmployee, action.payload.employeeId )
+
+            console.log('Woot Woot', employeeData);
+
+            employeeData.push(employeeObj)
+
+            console.log('is it finally over', employeeData);
+
+            return [...state];
         default:
             return state;
     }
