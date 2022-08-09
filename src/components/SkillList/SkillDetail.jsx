@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import "@ui5/webcomponents-icons/dist/save";
 import {spacing} from '@ui5/webcomponents-react-base'
@@ -13,11 +14,12 @@ import {
 
 function SkillList() {
     const skills = useSelector((store) => store.skills);
+    const {id} = useParams();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({ type: 'GET_SKILLS'});
-    }, []);
+        dispatch({ type: 'GET_SKILLS', payload:[id]});
+    }, [id]);
 
     return (
         <div>

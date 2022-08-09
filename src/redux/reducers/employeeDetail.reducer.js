@@ -226,12 +226,7 @@ const singleEmployeeDetails = (state = [], action) => {
             state = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
             console.log('Reducer Single Request', state);
             return state;
-        // case 'EDIT_SKILL':  
-        //     let updEmployeeDetails = Object.assign(state, {skillId: action.payload.skillId, rating: action.payload.skillRating})    
-        //     console.log('Employee Reducer', action);
-        //     return [...state]
         case 'EDIT_EMP_SKILL':
-            console.log('Edit Log', action.payload.skills.skillId);
             const updEmp = employeeData.map( obj => {
                 if (obj.employeeId === Number(action.payload.employeeId)) {
                     let arr1=(obj.skills)
@@ -239,19 +234,14 @@ const singleEmployeeDetails = (state = [], action) => {
                     for ( const updSkill of updSkills ) {
                         updSkill.rating = action.payload.rating
                     }
-                    console.log('This is the New SKILL Array', arr1);
                     return {...obj, skills: arr1}
                 }
             })
-            console.log('sigh', updEmp);
             const newArray = updEmp.filter( function(updatedRecord){
                 return updatedRecord !== undefined;
             });
-            console.log('winner winner chicken dinner', newArray[0]);
 
             let employeeObj = newArray[0]
-
-            console.log('My new object', employeeObj);
 
             const indexOfUpdEmployee = employeeData.findIndex(object => {
                 return object.employeeId === action.payload.employeeId
@@ -259,13 +249,9 @@ const singleEmployeeDetails = (state = [], action) => {
 
             employeeData.splice(indexOfUpdEmployee, 1, employeeObj)
 
-            console.log('Woot Woot', employeeData);
-
-            //employeeData.push(employeeObj)
-
-            console.log('is it finally over', employeeData);
-
             return [...state];
+        case 'GET_SKILLS':
+            console.log('Hit the SKILLS request');
         default:
             return state;
     }

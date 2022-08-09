@@ -15,7 +15,7 @@ function App() {
       <ThemeProvider>
         <UniversalShell />
         <Routes>
-          <Route path="/skills" element={<SkillList />} />
+          <Route path="/skills/:id" element={<SkillList />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/employeeDetail/:id" element={<EmployeeDetail />} />
           {/* <Route path="/edit/:id" element={<EmployeeSkillDialog />} /> */}

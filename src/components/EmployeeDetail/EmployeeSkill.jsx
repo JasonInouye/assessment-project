@@ -19,9 +19,9 @@ function EmployeeSkill(skills) {
   //const employeeId = skills.assign(skills.employeeId)
   const navigate = useNavigate();
 
-  const handleSkill = () => {
-    console.log('skill route clicked');
-    navigate('/skills')
+  const handleSkillList = (id) => {
+    console.log(`skill route clicked ${[id]}`);
+    navigate(`/skills/${[id]}`)
   }
 
   return (
@@ -32,7 +32,7 @@ function EmployeeSkill(skills) {
           subtitleText="Click here for complete list"
           avatar={<Icon name="add-equipment" />}
           interactive
-          onClick={handleSkill}
+          onClick={() => handleSkillList(skills.employeeId)}
         />
       }
       style={{ width: "450px", ...spacing.sapUiContentPadding }}
