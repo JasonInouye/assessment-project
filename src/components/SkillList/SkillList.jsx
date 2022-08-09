@@ -19,6 +19,10 @@ function SkillList() {
     const {id} = useParams();
     const dispatch = useDispatch();
 
+    const handleAddRating = (updData) => {
+        dispatch({ type: "ADD_EMP_SKILL", payload: updData})
+      }
+
     useEffect(() => {
         dispatch({ type: 'GET_SKILLS', payload:[id]});
     }, [id]);
@@ -48,7 +52,7 @@ function SkillList() {
                                     skills={skillItem}
                                 /> */}
                                 <div style={{...spacing.sapUiContentPadding}}>
-                                    <RatingIndicator value={skillItem.rating} style={{ ...spacing.sapUiContentPadding }}/>
+                                    <RatingIndicator value={skillItem.rating} onChange={(event) => {handleAddRating({skills: skillItem, rating: event.target.value, employeeId: id})}} style={{ ...spacing.sapUiContentPadding }}/>
                                     <Button
                                         onClick={function noRefCheck(){}}
                                         style={{marginLeft: "80px" }}

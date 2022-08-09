@@ -20,24 +20,6 @@ function EmployeeSkillItem(skills) {
   const skillData = skills.skills;
   const employeeId = skills.employeeId;
 
-  const [rating, setRating] = useState("");
-  const [open, setOpen] = useState(false);
-
-  const handleOpenEditBox = (id) => {
-    dispatch({ type: "SET_EDIT_SKILL", payload: id });
-    console.log("handleOpenEditBox", id);
-    // navigate(`/edit/${id}`);
-  };
-
-  const handleUpdSkill = (skills) => {
-    console.log("handleOpenEditBox", skills);
-    // navigate(`/edit/${id}`);
-  };
-
-  const handleCloseEditBox = () => {
-    setOpen(false);
-  };
-
   const handleRatingUpdate = (updData) => {
     //setRating(rating)
     console.log('Clicked UPDATE', updData);

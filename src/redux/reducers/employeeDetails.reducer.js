@@ -224,11 +224,9 @@ const employeeDetails = (state = [], action) => {
     switch (action.type) {
         case 'GET_EMPLOYEES':
             state = employeeData
-            console.log('this is the', state);
             return state
         case 'GET_EMP_DETAILS':      
             state = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
-            console.log('Reducer Single Request', state);
             return state;
         case 'EDIT_EMP_SKILL':
             const updEmp = employeeData.map( obj => {
@@ -253,9 +251,10 @@ const employeeDetails = (state = [], action) => {
 
             employeeData.splice(indexOfUpdEmployee, 1, employeeObj)
 
+            console.log('HERE IS THE NEW DATA', employeeData);
+
             return [...state];
         case 'GET_SKILLS':
-            console.log('Hit the SKILLS request', action.payload);
             const empSkills = employeeData.map( obj => {
                 if (obj.employeeId === Number(action.payload)) {
                     let arr2=(obj.skills)
@@ -270,6 +269,22 @@ const employeeDetails = (state = [], action) => {
             let domSkills = viewSkills[0];
 
             return domSkills;
+        case 'ADD_EMP_SKILL':
+            console.log('CLICKED ADD SKILL', action.payload.skills);
+            const addSkill = employeeData.map(obj => {
+                if (obj.employeeId === Number(action.payload.employeeId)){
+                    let arr1=(obj.skills)
+                    const skillsExist = arr1.find(skillExist => {
+                        if (skillExist.id === action.payload.skills.skillId){
+                            console.log('MATCH', action.payload.skillId);
+                        }
+                        else {
+                            console.log('NOT FOUND');
+                        }
+                    })
+                    console.log('this is working thus far',arr1);
+                }
+            })
         default:
             return state;
     }
