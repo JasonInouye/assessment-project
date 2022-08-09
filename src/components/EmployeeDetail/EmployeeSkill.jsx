@@ -1,6 +1,7 @@
 import React from "react";
 import { spacing } from "@ui5/webcomponents-react-base";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 import {
   Card,
   CardHeader,
@@ -16,11 +17,13 @@ import EmployeeSkillItem from "./EmployeeSkillItem";
 function EmployeeSkill(skills) {
   const [skillData] = skills.skills;
   const employeeId = skills.employeeId
+  const dispatch = useDispatch();
   //const employeeId = skills.assign(skills.employeeId)
   const navigate = useNavigate();
 
   const handleSkillList = (id) => {
-    console.log(`skill route clicked ${[id]}`);
+    console.log(`skill route clicked`, skillData);
+    dispatch({ type: 'EMP_SKILL_LIST', payload: {skillList: skillData, employeeId: employeeId}})
     navigate(`/skills/${[id]}`)
   }
 

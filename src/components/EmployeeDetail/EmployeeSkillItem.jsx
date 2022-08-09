@@ -12,8 +12,6 @@ import {
   Dialog,
 } from "@ui5/webcomponents-react";
 
-import EmployeeSkillDialog from "./EmployeeSkillDialog";
-
 function EmployeeSkillItem(skills) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,10 +50,10 @@ function EmployeeSkillItem(skills) {
         return (
           <div key={skill.skillId}>
             <TableRow style={{ width: "450px" }}>
-              <TableCell style={{ width: "150px" }}>
+              <TableCell style={{ width: "225px" }}>
                 <Label>{skill.skill}</Label>
               </TableCell>
-              <TableCell style={{ width: "150px" }}>
+              <TableCell style={{ width: "225px" }}>
                 <RatingIndicator
                   Value={skill.rating}
 
@@ -67,18 +65,6 @@ function EmployeeSkillItem(skills) {
                     left: "20px",
                   }}
                 />
-              </TableCell>
-              <TableCell style={{ width: "150px" }}>
-                <Button
-                  style={{
-                    margin: "25px",
-                    justifyContent: "right",
-                    left: "20px",
-                  }}
-                  onClick={() => dispatch({ type: "EDIT_EMP_SKILL", payload: {skills: skill, rating: rating, employeeId: skills.employeeId } })}
-                >
-                  Update
-                </Button>
               </TableCell>
             </TableRow>
           </div>

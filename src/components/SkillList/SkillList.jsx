@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import "@ui5/webcomponents-icons/dist/save";
 import {spacing} from '@ui5/webcomponents-react-base'
@@ -10,14 +11,17 @@ import {
     RatingIndicator,
     Text
     } from '@ui5/webcomponents-react'
+import SkillListItem from './SkillListItem';
 
 function SkillList() {
     const skills = useSelector((store) => store.skills);
+    const empSkills = useSelector((store) => store.employeeDetails);
+    const {id} = useParams();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({ type: 'GET_SKILLS'});
-    }, []);
+        dispatch({ type: 'GET_SKILLS', payload:[id]});
+    }, [id]);
 
     return (
         <div>
@@ -39,8 +43,12 @@ function SkillList() {
                                 <Text style={{ ...spacing.sapUiContentPadding }}>
                                     {skillItem.description}
                                 </Text>
+                                {/* <SkillListItem
+                                    key={skillItem.id}
+                                    skills={skillItem}
+                                /> */}
                                 <div style={{...spacing.sapUiContentPadding}}>
-                                    <RatingIndicator onChange={function noRefCheck(){}} style={{ ...spacing.sapUiContentPadding }}/>
+                                    <RatingIndicator value={skillItem.rating} style={{ ...spacing.sapUiContentPadding }}/>
                                     <Button
                                         onClick={function noRefCheck(){}}
                                         style={{marginLeft: "80px" }}

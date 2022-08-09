@@ -1,4 +1,4 @@
-let initialState = [
+let skillList = [
     {
         skillId: 1,
         skill: 'SAPUI5',
@@ -80,10 +80,26 @@ let initialState = [
 
 ];
 
-const skills = (state = initialState, action) => { 
+const skills = (state = [], action) => { 
     switch (action.type) {
         case 'GET_SKILLS':
+            state = skillList;
             return state;
+        case 'EMP_SKILL_LIST':
+            let arr1 = action.payload.skillList
+            console.log('This is the DB Skill List', skillList);
+            console.log('This is the Employee Skill List', arr1);
+
+            const finalDisplay = skillList.map( obj => {
+                console.log('Each DB Skill!!!', obj.skillId);
+                let updRatings = arr1.filter(updRating => updRating.skillId === obj.skillId)
+                console.log('Look HEREHERE', obj.rating);
+                for ( const updRating of updRatings ){
+                    obj.rating = updRating.rating
+                }
+            });
+            console.log('Each DB Skill!!!!!!!!', skillList);
+            return skillList
         default:
             return state;
     }
