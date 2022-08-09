@@ -270,7 +270,7 @@ const employeeDetails = (state = [], action) => {
 
             return domSkills;
         case 'ADD_EMP_SKILL':
-            console.log('CLICKED ADD SKILL', action.payload.skills);
+            console.log('CLICKED ADD SKILL', action.payload);
             const addSkill = employeeData.map(obj => {
                 if (obj.employeeId === Number(action.payload.employeeId)){
                     let arr1=(obj.skills)
@@ -279,7 +279,8 @@ const employeeDetails = (state = [], action) => {
                             console.log('MATCH', action.payload.skillId);
                         }
                         else {
-                            console.log('NOT FOUND');
+                            return arr1.push(action.payload.skills)
+                            // console.log('NOT FOUND', arr1);
                         }
                     })
                     console.log('this is working thus far',arr1);

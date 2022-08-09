@@ -77,6 +77,12 @@ let skillList = [
         rating: 0,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget feugiat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus.'
     },
+    {
+        skillId: 14,
+        skill: 'Add A New Skill',
+        rating: 0,
+        description: 'Click here to add a new skill'
+    },
 
 ];
 

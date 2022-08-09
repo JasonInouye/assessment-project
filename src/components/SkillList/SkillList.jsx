@@ -20,7 +20,13 @@ function SkillList() {
     const dispatch = useDispatch();
 
     const handleAddRating = (updData) => {
-        dispatch({ type: "ADD_EMP_SKILL", payload: updData})
+        let newSkill = {
+            skillId: updData.skills.skillId,
+            skill: updData.skills.skill,
+            rating: updData.rating
+        }
+        console.log('This is the newSkill', updData);
+        dispatch({ type: "ADD_EMP_SKILL", payload: {employeeId: updData.employeeId, rating: updData.rating, skills: newSkill}})
       }
 
     useEffect(() => {
