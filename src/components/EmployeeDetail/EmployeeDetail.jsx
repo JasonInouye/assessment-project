@@ -102,7 +102,7 @@ function EmployeeDetail() {
     dispatch({ type: "GET_EMP_DETAILS", payload: [id] });
   }, [id]);
 
-  const employeeDetails = useSelector((store) => store.singleEmployeeDetails);
+  const employeeDetails = useSelector((store) => store.employeeDetails);
 
   return (
     <Grid>

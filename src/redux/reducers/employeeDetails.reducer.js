@@ -220,8 +220,12 @@ let employeeData = [
     },
 ]
 
-const singleEmployeeDetails = (state = [], action) => { 
+const employeeDetails = (state = [], action) => { 
     switch (action.type) {
+        case 'GET_EMPLOYEES':
+            state = employeeData
+            console.log('this is the', state);
+            return state
         case 'GET_EMP_DETAILS':      
             state = employeeData.filter(employees => Number(employees.employeeId) === Number(action.payload))
             console.log('Reducer Single Request', state);
@@ -251,10 +255,24 @@ const singleEmployeeDetails = (state = [], action) => {
 
             return [...state];
         case 'GET_SKILLS':
-            console.log('Hit the SKILLS request');
+            console.log('Hit the SKILLS request', action.payload);
+            const empSkills = employeeData.map( obj => {
+                if (obj.employeeId === Number(action.payload)) {
+                    let arr2=(obj.skills)
+                    return arr2
+                }
+            });
+
+            const viewSkills = empSkills.filter( function(updatedRecord){
+                return updatedRecord !== undefined;
+            });
+
+            let domSkills = viewSkills[0];
+
+            return domSkills;
         default:
             return state;
     }
 }
 
-export default singleEmployeeDetails
+export default employeeDetails

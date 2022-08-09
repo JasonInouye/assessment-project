@@ -14,7 +14,7 @@ import {
 function Employees() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const employees = useSelector((store) => store.employees)
+    const employees = useSelector((store) => store.employeeDetails)
 
     useEffect(() => {
         dispatch({ type: 'GET_EMPLOYEES'});

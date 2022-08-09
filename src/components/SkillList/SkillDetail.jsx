@@ -14,12 +14,15 @@ import {
 
 function SkillList() {
     const skills = useSelector((store) => store.skills);
+    const empSkills = useSelector((store) => store.employeeDetails);
     const {id} = useParams();
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch({ type: 'GET_SKILLS', payload:[id]});
     }, [id]);
+
+    console.log('These are the skills', empSkills);
 
     return (
         <div>
