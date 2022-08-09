@@ -257,11 +257,11 @@ const singleEmployeeDetails = (state = [], action) => {
                 return object.employeeId === action.payload.employeeId
             })
 
-            employeeData.splice(indexOfUpdEmployee, action.payload.employeeId )
+            employeeData.splice(indexOfUpdEmployee, 1, employeeObj)
 
             console.log('Woot Woot', employeeData);
 
-            employeeData.push(employeeObj)
+            //employeeData.push(employeeObj)
 
             console.log('is it finally over', employeeData);
 

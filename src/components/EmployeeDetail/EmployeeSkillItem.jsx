@@ -40,6 +40,12 @@ function EmployeeSkillItem(skills) {
     setOpen(false);
   };
 
+  const handleRatingUpdate = (updData) => {
+    //setRating(rating)
+    console.log('Clicked UPDATE', updData);
+    dispatch({ type: "EDIT_EMP_SKILL", payload: updData})
+  }
+ 
   return (
     <div>
       {skillData.map((skill) => {
@@ -52,7 +58,9 @@ function EmployeeSkillItem(skills) {
               <TableCell style={{ width: "150px" }}>
                 <RatingIndicator
                   Value={skill.rating}
-                  onChange={(event) => setRating(event.target.value)}
+
+                  //onChange={(event) => setRating(event.target.value)}
+                  onChange={(event) => {handleRatingUpdate({skills: skill, rating: event.target.value, employeeId: skills.employeeId})}}
                   style={{
                     margin: "25px",
                     position: "relative",
