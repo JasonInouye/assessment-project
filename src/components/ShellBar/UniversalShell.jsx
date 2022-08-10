@@ -1,6 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Avatar, ShellBar, ShellBarItem } from "@ui5/webcomponents-react";
+import { useNavigate, useParams } from "react-router-dom";
+import { ShellBar, ShellBarItem } from "@ui5/webcomponents-react";
+import { useSelector } from "react-redux";
 
 import "@ui5/webcomponents-icons/dist/add-equipment";
 import "@ui5/webcomponents-icons/dist/employee-lookup";
@@ -9,15 +10,17 @@ import "@ui5/webcomponents-icons/dist/employee-pane";
 
 function UniversalShell() {
   const navigate = useNavigate();
+  const {id} = useParams();
+  const empSkills = useSelector((store) => store.employeeDetails);
 
   const handleEmployeeSearchClick = () => {
     console.log("Employees Clicked");
     navigate("/employees");
   };
 
-  const handleEmployeeDetailClick = () => {
+  const handleEmployeeDetailClick = (id) => {
     console.log("EmployeeDetail Clicked");
-    navigate("/employeeDetail/:id");
+    navigate(`/employeeDetail/${[id]}`);
   };
 
   const handleNewSkillClick = () => {
@@ -44,7 +47,7 @@ function UniversalShell() {
         <ShellBarItem
           icon="employee-pane"
           text="Add"
-          onClick={handleEmployeeDetailClick}
+          onClick={() => handleEmployeeDetailClick(empSkills.id)}
         />
         <ShellBarItem
           icon="employee-lookup"

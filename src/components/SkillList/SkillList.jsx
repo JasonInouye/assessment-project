@@ -11,7 +11,6 @@ import {
     RatingIndicator,
     Text
     } from '@ui5/webcomponents-react'
-import SkillListItem from './SkillListItem';
 
 function SkillList() {
     const skills = useSelector((store) => store.skills);
@@ -43,7 +42,7 @@ function SkillList() {
                 {skills.map((skillItem) =>{
                     return(
                         <div key={skillItem.skillId}
-                            data-layout-indent="XL3 L3 M6 S12"
+                            data-layout-indent="XL2 L2 M6 S12"
                             data-layout-span="XL1 L1 M3 S12"
                         >
                             <Card                
@@ -53,10 +52,6 @@ function SkillList() {
                                 <Text style={{ ...spacing.sapUiContentPadding }}>
                                     {skillItem.description}
                                 </Text>
-                                {/* <SkillListItem
-                                    key={skillItem.id}
-                                    skills={skillItem}
-                                /> */}
                                 <div style={{...spacing.sapUiContentPadding}}>
                                     <RatingIndicator value={skillItem.rating} onChange={(event) => {handleAddRating({skills: skillItem, rating: event.target.value, employeeId: id})}} style={{ ...spacing.sapUiContentPadding }}/>
                                     <Button
